@@ -1,0 +1,81 @@
+/* css v3 */
+
+body {
+	background-color: green;
+	font-family: sans-serif;
+	font-size:1.2em;
+	padding:20px;
+	color:white;
+}
+
+#title {
+	padding:30px;
+}
+
+.linkDiv {
+	background-color: #670fc4;
+	border-radius:5px;
+	border:2px solid black;
+	padding:12px;
+	margin:3px;
+	margin-bottom:10px;
+	color:white;
+	white-space: pre-wrap;      /* CSS3 */   
+	white-space: -moz-pre-wrap; /* Firefox */   
+	white-space: -o-pre-wrap;   /* Opera 7 */    
+}
+
+.linkDiv:hover {
+	cursor:pointer;
+}
+
+.linkText {
+	color:black;
+}
+
+a {
+	text-decoration:none;
+	color:#dddddd;
+}
+
+a:visited {
+	color: #33ff66;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.nav {
+	margin-top:30px;
+	text-align:center;
+}
+
+.link {
+			color:#069; 
+			cursor:pointer;
+		}
+		
+	/*	#rightsidespace {
+			display:inline-block;
+			border:black;
+			float:right;
+			width: 60%;
+			height: 1000px;
+			overflow: hidden;
+		} */
+		
+		#linkListDiv {
+			color:white;
+			display:inline-block;
+			width:40%;
+		}
+				
+		#homepageTitle {
+			padding:12px;
+			background-color:black;
+			border-radius:5px;
+			border:2px solid black;
+			color:white;
+			margin-bottom:10px;
+		}

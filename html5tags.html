@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>HTML5 Tags - Video, Audio, and Canvas</title>
+	<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+	<div id="homepageTitle">
+		<h1>CIT 261 Spring 2018</h1>
+		<h2>Brother Baer</h2>
+		<h3>Brayden Hord</h3>
+		<h3>HTML5 Tags - Video, Audio, and Canvas</h3>
+	</div>
+	
+	<div id="linkListDiv">
+		<div id="list">
+			<h1>HTML5 Tags - Video, Audio, and Canvas</h1><br>
+<p>The Video is the first minute of the licensed “open movie” <a href="http://bigbuckbunny.org" target="_blank">Big Buck Bunny</a></p><a href="https://creativecommons.org/licenses/by/2.0/" target="_blank">click here for license link</a>
+		</p>
+		<video controls="controls" height="300" preload="auto" id="video">
+			<source src="http://mirror.cessen.com/blender.org/peach/trailer/trailer_400p.ogg"  />
+		</video>
+		<div id="display">
+		<span>Stopped to load: <span id="count">0</span></span>
+		<span style="float:right">Playback Speed: <span id="speed">1.0x</span></span>
+		</div>
+		
+		<input type="button" id="slower" value="slower" />
+		<input type="button" id="normal" value="normal" />
+		<input type="button" id="faster" value="faster" />
+
+		<script>
+		//Different Variables Used in Passing and setting speed and others
+		var video = document.getElementById('video');
+		var countDisplay = document.getElementById('count');
+		var speedDisplay = document.getElementById('speed');
+		var faster = document.getElementById('faster');
+		var slower = document.getElementById('slower');
+		var normal = document.getElementById('normal');
+		var curRate = video.playbackRate;
+		var count = 0;
+		
+		
+		video.load();
+		video.addEventListener('canplaythrough',function(){
+		});
+		video.loop = true;
+		video.addEventListener('waiting', function(){
+			count++;
+			countDisplay.innerHTML = count;
+		});
+		
+		slower.addEventListener('click', function(){
+			
+			//decrease playback speed by .2, can be .1, but .2 is optimal for easier understanding of quick checking
+			//this conditional sets the min speed allowed
+			if(curRate > 0){
+				video.playbackRate = parseFloat(curRate) - 0.2;
+				curRate = video.playbackRate.toFixed(2);
+			}
+			speedDisplay.innerHTML = video.playbackRate.toFixed(1)+'x';
+		});
+		
+		faster.addEventListener('click', function(){
+			//increase playback speed (again) can be .1, but .2 is optimal for easier understanding of quick checking
+			//this conditional sets the max speed allowed, can exceed 2.0 if value is set to 3.0
+			if(curRate < 2.0){
+				video.playbackRate = parseFloat(curRate) + 0.2;
+				curRate = video.playbackRate.toFixed(2);
+			}
+			speedDisplay.innerHTML = video.playbackRate.toFixed(1)+'x';
+		});
+		
+		normal.addEventListener('click', function(){
+			video.playbackRate = 1.0;
+			curRate = 1.0;
+			speedDisplay.innerHTML = video.playbackRate.toFixed(1)+'x';
+		});
+	</script>
+
+	<br>
+	<br>
+	<br>
+	<br>
+
+	<div class="divTableCell"><div class="divTableCell"> Audio
+
+	<h1>Audio</h1>
+		<audio id="audio" controls="controls" crossOrigin="anonymous">
+			<source id="source" src="" type="">
+			Your browser does not support the html5 audio tag
+		</audio><br/>
+		<input type="button" id="reload" value="reload" />
+
+		<script>
+		var audio = document.getElementById('audio');
+		var source = document.getElementById('source');
+		var presidence = {
+			'probably': 2,
+			'maybe':1,
+			'':0
+		}
+		
+		//these variables will equal 0 1 or 2
+		var mp3 = presidence[audio.canPlayType('audio/mp3')]; 
+		var wav = presidence[audio.canPlayType('audio/wav')];
+		
+		//set source based on browser compatability
+		if(mp3 > wav){
+			source.src = 'Users/Seagull/Desktop/School/Spring 2018/Cit 261/CIT 261 Project/audiodrumroll.mp3';
+			source.type = 'audio/mp3';
+			console.log(source.type);
+		}
+		else if(mp3 < wav){
+			source.src = 'Users/Seagull/Desktop/School/Spring 2018/Cit 261/CIT 261 Project/audiodrumroll.wav';
+			source.type = 'audio/wav';
+			console.log(source.type);
+		}
+		audio.load();
+		var load = document.getElementById('reload');
+		load.addEventListener('click', function(){
+			audio.load();
+		});
+	</script>
+</div>
+
+
+		</div>
+	</div>
+</body>
+</html>
