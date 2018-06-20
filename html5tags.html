@@ -6,7 +6,7 @@
 </head>
 <body>
 	<div id="homepageTitle">
-		<h1>CIT 261</h1>
+		<h1>CIT 261 Spring 2018</h1>
 		<h2>Brother Baer</h2>
 		<h3>Brayden Hord</h3>
 		<h3>HTML5 Tags - Video, Audio, and Canvas</h3>
@@ -86,44 +86,62 @@
 	<div class="divTableCell"><div class="divTableCell"> Audio
 
 	<h1>Audio</h1>
-		<audio id="audio" controls="controls" crossOrigin="anonymous">
-			<source id="source" src="" type="">
-			Your browser does not support the html5 audio tag
-		</audio><br/>
-		<input type="button" id="reload" value="reload" />
 
-		<script>
-		var audio = document.getElementById('audio');
-		var source = document.getElementById('source');
-		var presidence = {
-			'probably': 2,
-			'maybe':1,
-			'':0
-		}
-		
-		//these variables will equal 0 1 or 2
-		var mp3 = presidence[audio.canPlayType('audio/mp3')]; 
-		var wav = presidence[audio.canPlayType('audio/wav')];
-		
-		//set source based on browser compatability
-		if(mp3 > wav){
-			source.src = 'Users/Seagull/Desktop/School/Spring 2018/Cit 261/CIT 261 Project/audiodrumroll.mp3';
-			source.type = 'audio/mp3';
-			console.log(source.type);
-		}
-		else if(mp3 < wav){
-			source.src = 'Users/Seagull/Desktop/School/Spring 2018/Cit 261/CIT 261 Project/audiodrumroll.wav';
-			source.type = 'audio/wav';
-			console.log(source.type);
-		}
-		audio.load();
-		var load = document.getElementById('reload');
-		load.addEventListener('click', function(){
-			audio.load();
-		});
-	</script>
+		<audio controls>
+  <source src="audio/drumroll.wav" type="audio/ogg">
+  <source src="audio/drumroll.mp3" type="audio/mpeg">
+Your browser does not support the audio element.
+		</audio>
 </div>
 
+	<div class="divTableCell"><div class="divTableCell"> Canvas
+
+	<h1>Canvas</h1>
+	   <canvas id="canvas2" width="500" height="300"></canvas>
+ <script type="application/javascript">
+
+//This is a static Circle drawn within the canvas, with just a filled line. 
+//Everything is drawn using preset integers and the math.PI functionality
+
+      var canvas = document.getElementById('canvas2');
+      var context = canvas.getContext('2d');
+      //Necessary for circle definition for math.PI functionality and critical for the circle's size
+      var ctx = canvas.width / 2;
+      var cty = canvas.height / 2;
+      var radius = 70;
+
+     	 context.beginPath();
+     	 context.arc(ctx, cty, radius, 0, 2 * Math.PI, false);
+     	 context.lineWidth = 8;
+     	 context.strokeStyle = 'red';
+     	 context.stroke();
+ </script>
+
+ <canvas id="canvas3" style="background:black"></canvas>
+
+ 
+    <script>
+
+//This is a moving circle drawn using Math.PI as well, however it changes the background to white as it travels across
+
+        var area = document.getElementById('canvas3');
+        area.height = 300; area.width = 500;
+        var ctx = area.getContext('2d');
+        var x = 10, y = 100;
+        ctx.fillStyle = "black";
+
+        function draw() {
+            ctx.beginPath();
+            ctx.arc(x, y, 20, 0, 2 * Math.PI);
+            ctx.fillStyle = 'white';
+            ctx.fill();
+
+            x += 2;
+            requestAnimationFrame(draw);
+        }
+        draw();
+
+    </script>
 
 		</div>
 	</div>
