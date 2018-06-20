@@ -21,7 +21,6 @@
 			<source src="http://mirror.cessen.com/blender.org/peach/trailer/trailer_400p.ogg"  />
 		</video>
 		<div id="display">
-		<span>Stopped to load: <span id="count">0</span></span>
 		<span style="float:right">Playback Speed: <span id="speed">1.0x</span></span>
 		</div>
 		
@@ -38,17 +37,6 @@
 		var slower = document.getElementById('slower');
 		var normal = document.getElementById('normal');
 		var curRate = video.playbackRate;
-		var count = 0;
-		
-		
-		video.load();
-		video.addEventListener('canplaythrough',function(){
-		});
-		video.loop = true;
-		video.addEventListener('waiting', function(){
-			count++;
-			countDisplay.innerHTML = count;
-		});
 		
 		slower.addEventListener('click', function(){
 			
