@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Manipulating CSS Class Properties Using JavaScript</title>
+	<link href="style.css" rel="stylesheet"/>
+
+		<style>
+
+#TestAreaBin {
+	height: 40px;
+	width: 500px;
+	outline: 5px dashed white;
+}
+
+#TestArea {
+	height: 25px;
+	width: 25px;
+	background-color: blue;
+	position: relative;
+	left:0;
+
+}
+
+		</style>
+
+</head>
+<body>
+	<div id="homepageTitle">
+		<h1>CIT 261 Spring 2018</h1>
+		<h2>Brother Baer</h2>
+		<h3>Brayden Hord</h3>
+		<h3>Manipulating CSS Class Properties Using JavaScript</h3>
+	</div>
+	
+	<div id="linkListDiv">
+		<div id="list">
+			<h1>Manipulating CSS Class Properties Using JavaScript</h1><br>
+<p>
+	By using the buttong on the bottom of the screen, you can change the colors of the box. 
+	<br>
+	By using the right arrow on your keyboard you can see that the javascript object inside, the 25x25 square will startr having its position moved 5 px at a time to the right.
+</p>
+<div id="TestAreaBin">
+	<div id="TestArea">
+		
+</div>
+</div>
+<button onclick="colorRed()" type="button">Red Box</button>
+<button onclick="colorBlue()" type="button">Blue Box</button>
+<button onclick="colorBlack()" type="button">Black Box</button>
+<button onclick="colorYellow()" type="button">Yellow Box</button>
+<button onclick="colorWhite()" type="button">White Box</button>
+
+<script>
+
+//For changing the color of the TestText div to each color specified, changes the boxes color
+
+	function colorRed() {
+    document.getElementById("TestArea").style.backgroundColor = "red";
+}
+	function colorBlue() {
+    document.getElementById("TestArea").style.backgroundColor = "blue";
+}
+	function colorBlack() {
+    document.getElementById("TestArea").style.backgroundColor = "black";
+}
+	function colorYellow() {
+    document.getElementById("TestArea").style.backgroundColor = "Yellow";
+}
+	function colorWhite() {
+    document.getElementById("TestArea").style.backgroundColor = "white";
+}
+
+</script>
+
+<script type="text/javascript">
+	
+	var bin = document.getElementById('TestAreaBin');
+	var area = document.getElementById('TestArea');
+	var areaLeft = 0;
+
+	function anim(e){
+
+		if(e.keyCode==39){
+			areaLeft+=5;
+			area.style.left = areaLeft + 'px';
+		}
+
+	}
+	document.onkeydown=anim;
+
+</script>
+
+
+
+
+
+		</div>
+	</div>
+</body>
+</html>
