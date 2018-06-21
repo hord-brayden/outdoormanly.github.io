@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Page Title</title>
+	<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+	<div id="homepageTitle">
+		<h1>CIT 261 Spring 2018</h1>
+		<h2>Brother Baer</h2>
+		<h3>Brayden Hord</h3>
+		<h3>Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</h3>
+	</div>
+	
+	<div id="linkListDiv">
+		<div id="list">
+			<h1>Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</h1><br>
+			<br><br><a href="index.html">Home</a> <br><br>
+
+<br><br><h1>Loops</h1>
+
+		<p>Display a For Loop:
+		<p>Outputs the values stored in an array using a for loop
+		<br>
+		<button onclick="simpLoop()">For Loop</button>	
+		<p id="displayA">
+		
+		<p>Display a Do While Loop:
+		<p>Outputs an iterated counter which counts through a do while loop that has the counter set to not exceed 8 values
+		<br>
+		<button onclick="doLoop()">Do Loop</button>	
+		<p id="displayB">
+
+<script type="text/javascript">
+		function simpLoop(){
+			var output = "For Loop" + "<br>";
+			var foodI = ["Pizza", "Hamburger", "Chili Dog", "Milk Shakes"];
+			var count;			
+      			for (count = 0; count < foodI.length; count++) {
+				output += count + "  " + foodI[count] + "<br>";
+			}
+			output += "Items in array = " + foodI.length;
+			document.getElementById("displayA").innerHTML = output;
+		}
+
+		function doLoop(){
+			var outputDo = "Do While Loop" + "<br>";
+			var x = 0;
+        	do {
+				outputDo += x + "<br>";
+				x++;
+        	}
+			while (x < 8);
+			document.getElementById("displayB").innerHTML = outputDo;
+		}
+
+
+</script>
+<br><br><h1>Conditional Statements</h1>
+
+<h4>Display an if / else condition:</h4>
+		<p>If else statement that uses math.random to generate a random number, 1-100. It then checks that number against the statement, and <b>IF</b> the value is under 50, it displays Tails. <b>ELSE</b> it displays Heads.
+		<br>
+		<button onclick="evenOrOdd()">If / Else</button>
+		<button onclick="reset()">Reset</button>
+		<p id="displayC">
+
+
+
+<script>
+		function evenOrOdd() {
+
+			var value = Math.ceil(Math.random() * Math.ceil(100));
+			var output;
+			if (value <50) {
+				output = "Tails";
+			} else {
+				output = "Heads";
+			}
+			document.getElementById("displayC").innerHTML = output;
+		}
+						function reset (){
+			document.getElementById("displayC").innerHTML = "";
+		}
+
+</script>
+
+
+<br><br><h1>Functions</h1>
+
+<script>
+
+</script>
+
+<br><br><h1>Variables</h1>
+
+<script>
+
+</script>
+
+<br><br><h1>Parameters</h1>
+
+<script>
+
+</script>
+
+<br><br><h1>Arrays</h1>
+
+<script>
+
+</script>
+
+<br><br><h1>Associative Arrays</h1>
+
+<script>
+
+</script>
+
+		</div>
+		<br><br><a href="index.html">Home</a> <br><br>
+	</div>
+</body>
+</html>
