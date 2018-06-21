@@ -17,7 +17,7 @@
 			<h1>Loops, Conditional Statements, Functions, Variables, Parameters, Arrays, Associative Arrays</h1><br>
 			<br><br><a href="index.html">Home</a> <br><br>
 
-<br><br><h1>Loops</h1>
+<br><br><h1>Loops & Associative Arrays</h1>
 
 		<p>Display a For Loop:
 		<p>Outputs the values stored in an array using a for loop
@@ -26,7 +26,7 @@
 		<p id="displayA">
 		
 		<p>Display a Do While Loop:
-		<p>Outputs an iterated counter which counts through a do while loop that has the counter set to not exceed 8 values
+		<p>Outputs an iterated counter which counts through a do while loop that has the counter set to not exceed 8 values that are stored within an associative array.
 		<br>
 		<button onclick="doLoop()">Do Loop</button>	
 		<p id="displayB">
@@ -58,14 +58,16 @@
 </script>
 <br><br><h1>Conditional Statements</h1>
 
-<h4>Display an if / else condition:</h4>
+	<h4>Display an if / else condition:</h4>
 		<p>If else statement that uses math.random to generate a random number, 1-100. It then checks that number against the statement, and <b>IF</b> the value is under 50, it displays Tails. <b>ELSE</b> it displays Heads.
 		<br>
 		<button onclick="evenOrOdd()">If / Else</button>
 		<button onclick="reset()">Reset</button>
 		<p id="displayC">
 
-
+	<h4>If else / Else if Conditional Statement</h4>
+		<p>Display the browser that the user is currently viewing the page on. This works using the window.navigator.userAgent property detailed here <a href= "https://www.w3schools.com/jsref/prop_nav_useragent.asp"> LINK</a> </p>	
+		<p id="displayD">
 
 <script>
 		function evenOrOdd() {
@@ -84,37 +86,89 @@
 		}
 
 </script>
+	<script>
 
+		var btx, uAgent = window.navigator.userAgent;
+		console.log(uAgent);
+
+		if(uAgent.indexOf("Chrome")){
+			btx = "Chrome";
+		}else if (uAgent.indexOf("Safari/")){
+			btx = "Safari";
+		}else if (uAgent.indexOf("Firefox/")){
+			btx = "Firefox";
+		}else if (uAgent.indexOf("; MSIE")){
+			btx = "Internet Explorer";
+		}else{
+			btx = "Your browser is undetectable by this webpage's script";
+		}
+		
+		var output = document.getElementById('displayD')
+		var text = document.createTextNode("Browser is: " + btx);
+		output.appendChild(text);
+		
+	</script>
 
 <br><br><h1>Functions</h1>
 
-<script>
+<button onclick="outputFunctions()">Press to see a Function</button>
+<p id="displayF"> Press the button to erase this text and see a function working properly!
 
+<script>
+	function outputFunctions () {
+
+		document.getElementById("displayF").innerHTML = "You'll Find Many Functions On This Page!";
+}
 </script>
 
 <br><br><h1>Variables</h1>
 
-<script>
-
-</script>
-
-<br><br><h1>Parameters</h1>
+	<p id="displayG">
 
 <script>
-
+		var a = 10;
+		var b = 10;
+		var c = 10;
+		var d = 10;
+		var e = 10;
+		var f = 10;
+		var g = 10;
+		var addi = a + b + c + e + f + g; 
+		var output = document.getElementById('displayG')
+		var sum = document.createTextNode("Value of all variables is " + addi);
+		output.appendChild(sum);
 </script>
 
-<br><br><h1>Arrays</h1>
+<br><br><h1>Parameters & Arrays</h1>
 
-<script>
 
+<p>This value passes a parameter and array from one function to another, in addition to performing some basic algebra on each of the ends and the two middle values average.
+<button type="button" onclick="arrayParam()">Click here</button>
+<p id ="displayH"></p>
+
+
+<script language="javascript" type="text/javascript">
+	function arrayParam() {
+	/*This Array will be reffered to by the next two functions. */
+	var list = [3,4,5,6,7,8];
+	var side = addEnds(list);
+		function addEnds(list) {
+			var first = list[0];
+			var second = list[5];
+			var third = first + second;
+			return third
+		}
+	var endresult = getMiddle(list)	
+		function getMiddle(list) {
+			var first = list[2];
+			var second = list[3];
+			var third = (first + second) / 2;
+			return third;
+		}
+	document.getElementById('displayH').innerHTML = "Sum of array ends " + side + "<br>" + "Average of array middle values " + endresult;	
+	}
 </script>
 
-<br><br><h1>Associative Arrays</h1>
-
-<script>
-
-</script>
 
 		</div>
 		<br><br><a href="index.html">Home</a> <br><br>
