@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript</title>
+	<link href="style.css" rel="stylesheet"/>
+	<style type="text/css" id="page-specific">
+
+</style>
+</head>
+<body>
+	<div id="homepageTitle">
+		<h1>CIT 261 Spring 2018</h1>
+		<h2>Brother Baer</h2>
+		<h3>Brayden Hord</h3>
+		<h3>Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript</h3>
+	</div>
+	
+	<div id="linkListDiv">
+		<div id="list">
+			<h1>Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript</h1><br>
+			<br><br><a href="index.html">Home</a> <br><br>
+
+
+
+<button onclick="scaleTime()">Click for JS</button>	
+
+<script>
+
+function myMove() {
+			var elem = document.getElementById("animate1");   
+			var pos = 0;
+			var id = setInterval(frame, 5);
+			function frame() {
+				if (pos == 250) {
+					clearInterval(id);
+				} else {
+					pos++;
+					elem.style.top = pos + 'px'; 
+					elem.style.left = pos + 'px';
+				}
+			}
+		}
+		myMove();
+
+
+
+
+</script>
+
+		</div>
+		<br><br><a href="index.html">Home</a> <br><br>
+	</div>
+</body>
+</html>
