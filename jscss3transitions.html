@@ -4,7 +4,67 @@
 	<title>Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript</title>
 	<link href="style.css" rel="stylesheet"/>
 	<style type="text/css" id="page-specific">
+<style>
+   
+#linkListDiv {
+  width:100%;
+}
 
+ .wrap{
+  margin: 25px;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+
+}
+
+.box{
+  width: 200px;
+  margin: 20px 20px;
+  color: #FFF;
+  line-height: 130px;
+}
+
+
+.color{
+  background-color: red;
+}
+
+.box:hover .scale{
+  transform: scale(1.5, 1.5);
+}
+
+.rotate{
+  transform: rotate(90deg);
+}
+.spin {
+    /* The animation part: */
+    animation-name: spin;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+.skew{
+  transform: skew(30deg, 20deg);
+}
+
+#change {
+    transition-property: background-color;
+    transition-duration: 3s;
+  }
+
+.animated {
+  transition-property: background-color;
+  transition-duration: 3s;
+
+}
+
+</style>
 </style>
 </head>
 <body>
@@ -19,32 +79,84 @@
 		<div id="list">
 			<h1>Creating CSS3 Transitions and Animations in CSS and triggering them with JavaScript</h1><br>
 			<br><br><a href="index.html">Home</a> <br><br>
+    </div>
+</div>
+<br>
+1st Row 
+<br>
+Pressing the Activate Animations button at the bottom will turn on one of the animations for the bottom, and turn the other off if it is pressed before it makes 5 complete rotations.
 
-
-
-<button onclick="scaleTime()">Click for JS</button>	
+<br><br>
+<h3>CSS Animations & Transitions</h3>
+<div class="wrap">
+<div class="box">
+    <div class="color">
+      Normal Box
+    </div>
+  </div> 
+  <div class="box">
+    <div class="color scale">
+      On Hover Scale
+    </div>
+  </div> 
+   <div class="box">
+   <div class="color rotate">
+    rotated 90 degrees
+   </div>
+ </div>
+    <div class="box">
+    <div id="change" class="color spin">
+      spinning box
+    </div>
+  </div>
+  <div class="box">
+    <div class="color skew">
+      skewed box
+    </div>
+  </div>
+</div>
+<!-- 2nd Row -->
+<h3>Second Row of JS triggered events</h3>
+<div class="wrap">
+  <div class="box">
+    <div class="color">
+      Normal Box
+    </div>
+  </div> 
+  <div class="box">
+    <div id="transitionOnHover" class="color">
+      On Hover Scale
+    </div>
+  </div> 
+   <div class="box">
+    <div id="change2" class="color spin">
+      spinning box
+    </div>
+  </div>
+</div>
+<input type="button" id = "activateAnimations" value="Activate Animations">
 
 <script>
+  let btn = document.getElementById('activateAnimations');
+  let animationsOn = false;
 
-function myMove() {
-			var elem = document.getElementById("animate1");   
-			var pos = 0;
-			var id = setInterval(frame, 5);
-			function frame() {
-				if (pos == 250) {
-					clearInterval(id);
-				} else {
-					pos++;
-					elem.style.top = pos + 'px'; 
-					elem.style.left = pos + 'px';
-				}
-			}
-		}
-		myMove();
+  let transitionOnHover = document.getElementById("transitionOnHover")
+  let spinBox = document.querySelector("#change2");
 
+//event listener
+  btn.addEventListener('click', function(){
+if (animationsOn){
 
+  transitionOnHover.classList.remove('scale');
+} else {
 
+//These linkes check if it has the animationsOn class in CSS, if it does it removes them, if it does not, then it adds them. In specific this one below changes the iteration count to 5.
+//However, if the box has exceeded 5 rotations, it will keep spinning!!
 
+  transitionOnHover.classList.add('scale');
+  spinBox.style.animationIterationCount = 5;
+}
+  });
 </script>
 
 		</div>

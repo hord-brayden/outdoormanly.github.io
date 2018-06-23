@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</title>
+	<link href="style.css" rel="stylesheet"/>
+</head>
+<body>
+	<div id="homepageTitle">
+		<h1>CIT 261 Spring 2018</h1>
+		<h2>Brother Baer</h2>
+		<h3>Brayden Hord</h3>
+		<h3>DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</h3>
+	</div>
+	
+	<div id="linkListDiv">
+		<div id="list">
+			<h1>DOM Manipulation Using createElement, appendChild, insertBefore, removeChild, etc.</h1><br>
+			<br><br><a href="index.html">Home</a> <br><br>
+
+			<div>
+				Below we are inserting a new text string using DOM, if you see the words "If you see this, it isn't working." then it is not working, but it displays Hi-Yah! simply through getting the element using DOM, then turning it into an array. 
+			<br><br>
+				Followed by creating a function and button combo which uses the appendChild DOM and adds the text "Hi-Yah!". Additionally, I am using the createElement functionality of DOM to make new divs to put the Hi-Yah's into.
+				<br><br>
+				Additionally using the removeChild feature will eliminate the divs created by the previous function.
+			</div>
+			<br><br>
+			<div class="ConsoleNodeType">
+				If you see this, it isn't working.
+				<div id="ConsoleTypeOne">
+					
+				</div>
+			</div>
+			<button onclick="addMoreHiYah('Hi-Yah!')">Hi-Yah's!</button>
+			<br>
+			<button onclick="noMoreHiYah('')">Delete Hi-Yah's!</button>
+			<br><br>
+
+
+			<div id="ConsoleTypeOne">
+			</div>
+
+<script type="text/javascript">
+
+
+				//Working with the <p id="ConsoleNodeType"> and dissecting what we know about it
+				//Additionally, we are outputting each piece of pertinent information about the node straight
+				//To the Console for inspection
+
+
+				const typeNode = document.querySelector('.ConsoleNodeType');
+				console.log('.ConsoleNodeType is a', typeNode.nodeType);
+
+				//Should display type 1 as it is an Element
+
+				console.log('.ConsoleNodeType nodes name is:', typeNode.nodeName);
+				console.log('.ConsoleNodeType has child nodes?', typeNode.hasChildNodes());
+
+				//This should display what the node's name is, which is important as we can asssign
+				//that to a variable and alter it
+
+				//Additionally, it also tells us if it has child nodes
+
+
+				//we can also clone or reproduce the node, and send it to the console, or even out to HTML or CSS
+				//in order to alter them or add new stuff
+
+				//const clonedNode = typeNode.clonedNode(true); // the true delineates if we want children or not
+	
+
+				//Let's add new stuff to the <div class="ConsoleNodeType">
+				var newJunk = document.getElementsByClassName('ConsoleNodeType');
+				//We can store it in an array as well, or not, for this I will use the array
+				Array.from(newJunk).forEach(function(item){
+					item.textContent = 'Hi-Yah!';
+				});
+
+
+				//Now let's throw in some extra Hi-Yahs using the appendChild DOM feature
+
+				function addMoreHiYah(addIt) {
+				var oneDivs = document.createElement("div");
+				var doIt = document.createTextNode(addIt);
+				var element = document.getElementById("ConsoleTypeOne");
+				oneDivs.appendChild(doIt);
+				element.appendChild(oneDivs);
+				}
+
+			//Now, let's use the Delete Hi-Yah's button on the broswer to eliminate the HI-Yah's we've just generated.
+				function noMoreHiYah(noMore) {
+				var gett = document.getElementById("ConsoleTypeOne");
+				gett.removeChild(gett.childNodes[0]); 
+				}
+
+
+		</script>
+<div></div>
+<div></div>
+<div></div>
+
+			
+		</div>
+		<br><br><a href="index.html">Home</a> <br><br>
+	</div>
+</body>
+</html>
