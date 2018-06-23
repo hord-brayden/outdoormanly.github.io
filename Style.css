@@ -16,27 +16,6 @@ div {
 	padding:30px;
 }
 
-.linkDiv {
-	background-color: #670fc4;
-	border-radius:5px;
-	border:2px solid black;
-	padding:12px;
-	margin:3px;
-	margin-bottom:10px;
-	color:white;
-	white-space: pre-wrap;      /* CSS3 */   
-	white-space: -moz-pre-wrap; /* Firefox */   
-	white-space: -o-pre-wrap;   /* Opera 7 */    
-}
-
-.linkDiv:hover {
-	cursor:pointer;
-}
-
-.linkText {
-	color:black;
-}
-
 a {
 	text-decoration:none;
 	color:#dddddd;
@@ -55,34 +34,29 @@ a:hover {
 	text-align:center;
 }
 
-.link {
-			color:#069; 
-			cursor:pointer;
-		}
-		
-	/*	#rightsidespace {
+/*	#rightsidespace {
 			display:inline-block;
 			border:black;
 			float:right;
-			width: 60%;
+			width: 60%;area
 			height: 1000px;
 			overflow: hidden;
 		} */
 		
-		#linkListDiv {
-			color:white;
-			display:inline-block;
-			width:40%;
-		}
+#area {
+	color:white;
+	display:inline-block;
+	width:40%;
+}
 				
-		#homepageTitle {
-			padding:12px;
-			background-color:black;
-			border-radius:5px;
-			border:2px solid black;
-			color:white;
-			margin-bottom:10px;
-		}
+#homepageTitle {
+	padding:12px;
+	background-color:black;
+	border-radius:5px;
+	border:2px solid black;
+	color:white;
+	margin-bottom:10px;
+}
 
 
 
