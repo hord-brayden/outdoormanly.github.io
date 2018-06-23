@@ -14,10 +14,117 @@
 	
 	<div id="area">
 			<h1>Standard JavaScript Events Including those for Mobile Devices ( Ex. onTouchBegin, onLoad, etc.) and Animation and Transition Events</h1><br>
-			<br><br><a href="index.html">Home</a> <br><br>
+<br><br><a href="index.html">Home</a> <br><br>
+
+<!-- https://www.w3schools.com/jsref/event_touchstart.asp 
+A rudimentary tutorial which demonstrates what you see below for the onTouchBegin, and onLoad examples
+-->
+<br>
+<h1>EXAMPLES</h1>
+<br>
+
+<p id="myP">Touch this paragraph to trigger a function that will write "Hello World".</p>
+
+<p><strong>Note:</strong> This example is for touch devices only.</p>
+
+<p id="demo1"></p>
+
+<br>
+
+<script>
+document.getElementById("myP").addEventListener("touchstart", myFunction);
+
+function myFunction() {
+  document.getElementById("demo1").innerHTML = "Hello World";
+}
+
+</script>
+
+<p>This example uses the addEventListener() method to attach a "load" event to an iframe element.</p>
+
+<p id="demo"></p>
+
+<iframe id="myFrame" src="index.html"></iframe>
+
+<p id="demo"></p>
+
+<script>
+document.getElementById("myFrame").addEventListener("load", myFunction);
+
+function myFunction() {
+    document.getElementById("demo").innerHTML = "Iframe is loaded.";
+}
+</script>
+
+<br>
+Expounding - onLoad
+<br>
+<div>
+	One of the alerts that should display is if the actual window for the site loaded - If it was successful it will Display 'Ok'
+	<br>
+	If the Window does not load properly (Which it should), it will display - 'Window Did Not Load'
+</div>
+       <script type="text/javascript">
+
+       	// CSS events are also available to be used with the onload feature
+
+       	  	// CSS events are also available to be used with the onload feature
+
+       	/*
+
+        function OnLoadDocument () {
+            alert ("The document has been loaded.");
+            document.body.style.backgroundColor = "red";
+        }
+		*/
 
 
-		</div>
+        function onWindowLoad() {
+            alert('Ok - Window Loaded');
+        }
+        window.onload = onWindowLoad;
+
+         function onWindowLoadFail() {
+            alert('Window Did Not Load');
+        }
+        window.onerror = onWindowLoadFail;
+
+        </script>
+
+        <script>
+        	//should enforce failing once or twice based on browser based on misplaced variables and elements
+
+     	document.getElementById("touchP").addEventListener("touchstart", twoTouch);
+
+
+        </script>
+<br>
+Expounding - onTouch
+<br>
+<div>
+	Should display WINDOW DID NOT LOAD and fire the previous alert functionality showing that there is no function in here, in addition it did not start any onTouch event!!!
+
+	<br>
+<p ontouchstart="touchIn(begin)" id="target1">Touch me!</p>>
+
+
+</div>
+
+<script>
+	//Other onTouch features & demos
+
+function touchIn(begin) {
+ //Should display WINDOW DID NOT LOAD and fire the previous alert functionality showing that there is no function in here, in addition it did not start any onTouch event!!!
+}
+function e() {
+ var touchY=document.getElementById("target1");
+	touchY.ontouchstart = touchIn;
+}
+
+
+</script>
+
+
 		<br><br><a href="index.html">Home</a> <br><br>
 	</div>
 </body>

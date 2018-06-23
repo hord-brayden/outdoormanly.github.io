@@ -8,12 +8,12 @@ body {
 	color:white;
 }
 
-div {
-	padding:10px;
+h1 {
+	width: 90%;
 }
 
-#title {
-	padding:30px;
+div {
+	padding:10px;
 }
 
 a {
@@ -34,7 +34,11 @@ a:hover {
 	text-align:center;
 }
 
-/*	#rightsidespace {
+/*	
+
+This is for adding two columns or rather two sides to the pages, however it is deprecated
+
+#rightsidespace {
 			display:inline-block;
 			border:black;
 			float:right;
@@ -42,14 +46,17 @@ a:hover {
 			height: 1000px;
 			overflow: hidden;
 		} */
-		
+
 #area {
 	color:white;
 	display:inline-block;
 	width:40%;
+
 }
+
 				
 #homepageTitle {
+	width: 90%
 	padding:12px;
 	background-color:black;
 	border-radius:5px;
