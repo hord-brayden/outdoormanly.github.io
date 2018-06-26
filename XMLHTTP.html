@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Using XMLHTTPRequest to Consume a JSON Web Service </title>
+	<link href="style.css" rel="stylesheet"/>
+<style>
+	#area {
+	color:white;
+	display:inline-block;
+	width:90%;
+
+}
+
+</style>
+</head>
+<body>
+	<div id="homepageTitle">
+		<h1>CIT 261 Spring 2018</h1>
+		<h2>Brother Baer</h2>
+		<h3>Brayden Hord</h3>
+		<h3>Using XMLHTTPRequest to Consume a JSON Web Service </h3>
+	</div>
+	
+	<div id="area">
+I found a site - <a href="https://randomuser.me/"> which generates APIs and other objects which we will use for this page!</a>
+		<div>
+			<h1>Using XMLHTTPRequest to Consume a JSON Web Service </h1><br>
+			<br><br><a href="index.html">Home</a> <br><br>
+<div id="areaMajor">
+
+	I found a site - <a href="https://randomuser.me/"> which generates APIs and other objects which we will use for this page!</a>
+
+<br><br>
+		<div style="cursor: pointer; stroke: 4pt; color: red;" id="newUser"><b>Test ME - </b></div>
+		<div class="test2" id="newDiv"></div>
+
+
+
+<script>
+	var target = document.getElementById('target');
+	var readyi = document.getElementById('newDiv');
+	var userBtn = document.getElementById('newUser');
+
+	var req = new XMLHttpRequest(),
+		method = 'GET';
+		url = 'https://randomuser.me/api/';
+		
+	req.onreadystatechange = function(){
+		switch(req.readyState){
+			case 1:
+				readyi.innerHTML += 'opened object<br><br> ';
+			break;
+			case 2: 
+				readyi.innerHTML += 'sent object headers and status available<br>';
+
+				//https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/getResponseHeader
+				//This specifically ensures that our content type is going to the be what we expect, otherwise it will throw an exception and break.
+				readyi.innerHTML += 'obj header type = (Content-Type):  ' + req.getResponseHeader('Content-Type') + ', ' + req.status +'<br><br>';
+
+				//This tells us what content-type the object is -the outcomes are :
+					/*
+				* -- Possible outcomes -- 
+				* UNSENT 0 > Failed
+				* OPENED 0 > Failed
+				* LOADING 200
+				* DONE 200
+				*/
+				
+
+
+				readyi.innerHTML += 'status -- ' + req.status + '<br>'; 
+/*
+
+				if document.getElementById('newDiv').innerHTML.indexOf("200)") = 200 { 
+					readyi.innerHTML += '200 == LOADING & DONE!';
+					return 'Success!';
+				}
+
+				*/
+
+			break;
+			case 3:
+				readyi.innerHTML += 'Complete<br><br>';
+				/*
+				* -- Possible outcomes -- 
+				* UNSENT 0 > Failed
+				* OPENED 0 > Failed
+				* LOADING 200
+				* DONE 200
+				*/
+				if(req.status === 200){
+
+					buildIt(req.responseText); 
+					// There's an error on this line found in the chrome console, due to the inability to reference each of https://randomuser.me/api/ features, specifically the split function
+				}
+				else{
+					readyi.innerHTML += "ERROR because of Content-Type: " + req.responseText+'<br><br>';
+				}
+			break;
+		}
+	};
+	userBtn.addEventListener('click', function(){
+		readyi.innerHTML = '';
+		req.open(method, url, true);
+
+		//still working on how to get this working as a request write , as opposed to a send. I found a variant where re.send is working, so I just went with it.
+		req.send();
+	});
+	req.open(method, url, true);
+
+	//refer to above comment
+	req.send();
+	
+	function buildIt(res){
+	 	//This is where we grab the object and manipulate it for our purposes
+		var resObj = JSON.parse(res);
+		// There's an error on the above line found in the chrome console, due to the inability to reference each of https://randomuser.me/api/ features
+		var person = resObj.results[0];
+
+		//Call the html div position and create
+		var div = document.createElement('div');
+		div.classList.add('entry');
+
+
+
+		//This outputs the info pulled from randomuser.me/, specifically from https://randomuser.me/api/
+		var cons = document.createElement('div');
+		cons.classList.add('infoDiv');
+		var bday = person.bday;
+		var forma = 'Cell: ' + person.cell+'<br><br>' +
+				   'DOB: ' + bday[0] + '<br><br>' +
+				   'Address:<br><br>' + person.location.street + '<br><br>' +
+							   person.location.city + ', ' + person.location.state + ' ' + person.location.postcode;
+		cons.innerHTML = forma;		   
+		
+		//Constructing the object in a sensical fashion, meaning in a way that is ledgible
+		div.appendChild(name);
+		div.appendChild(img);
+		div.appendChild(cons);
+		target.appendChild(div);
+	}
+</script>
+
+<script>
+	/*Here's a MoZilla Feature! You'll have to look at the conolse, though.
+
+	var xhr = new XMLHttpRequest(),
+    method = "GET",
+    url = "https://developer.mozilla.org/";
+
+xhr.open(method, url, true);
+xhr.onreadystatechange = function () {
+  if(xhr.readyState === 4 && xhr.status === 200) {
+    console.log(xhr.responseText);
+  }
+};
+xhr.send(); */
+
+</script>
+		</div>
+		<br><br><a href="index.html">Home</a> <br><br>
+	</div>
+</body>
+</html>
