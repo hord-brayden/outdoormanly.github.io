@@ -23,8 +23,8 @@
 			"kids": "two",
 		}
 		
-		var meString = JSON.stringify(meObj); // string
-		var parsedObj = JSON.parse(meString); // obj
+		var meString = JSON.stringify(meObj); 
+		var parsedObj = JSON.parse(meString); 
 		
 		let stringDisplay = document.createElement('div');
 		stringDisplay.innerHTML = meString;
@@ -34,16 +34,18 @@
 		
 		demo.appendChild(stringDisplay);
 		demo.appendChild(objDisplay);
+
+
 		
-		/*
-		function displayObj(obj){
+		
+		function displayObj(meObj){
 			let string = "{";
-			for (el in obj){
-				string += el + ":" + obj[el]
+			for (i in meObj){
+				string += i + ":" + meObj[el]
 			}
 			return string;
 		}
-		*/
+		
 		
 	</script>
 </div>
