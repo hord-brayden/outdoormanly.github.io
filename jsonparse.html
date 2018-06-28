@@ -8,6 +8,8 @@
 	
 	<div id="forDemo">
 	</div>
+	<div id="demo">
+	</div>
 	<script>
 		let demo = document.querySelector("#forDemo");
 		//this is the stringify method wherein it contains my information, it then takes all of the values stored in me
@@ -33,21 +35,16 @@
 		objDisplay.innerHTML = parsedObj;
 		
 		demo.appendChild(stringDisplay);
-		demo.appendChild(objDisplay);
-
-
-		
-		
-		function displayObj(meObj){
-			let string = "{";
-			for (i in meObj){
-				string += i + ":" + meObj[el]
-			}
-			return string;
-		}
-		
+		demo.appendChild(objDisplay);		
 		
 	</script>
+
+<script>
+
+var obj = JSON.parse('{ "name":"Brayden", "age":29, "city":"Pasco"}');
+document.getElementById("demo").innerHTML = obj.name + ", " + obj.age;
+
+</script>
 </div>
 <a href="index.html">Home</a>
 </body>
