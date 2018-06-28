@@ -11,13 +11,59 @@
 		<h3>Brayden Hord</h3>
 		<h3>Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects</h3>
 	</div>
-	
 	<div id="area">
 		<div>
 			<h1>Local Storage API, Storing and Retrieving Simple Data, Arrays, Associative Arrays, and Objects</h1><br>
 			<br><br><a href="index.html">Home</a> <br><br>
+<br>
 
-		</div>
+<form method="post">
+			<h3>Making changes to, and submitting a locally stored piece of data</h3>
+			<input type="text" id="store"  onclick="addMenu()">
+			<input id="submit" onclick="setMenu()" type="submit">
+		</form>
+		<br>
+		<h3>Local Store Variant</h3><br>
+		<div onclick="getMenu()" id="items">Click this div for your locally stored simple data item - Ensure that you first put a value into the data storage</div>
+
+		<h3>JSON array retrieval and storage</h3>
+		<div onclick="reMenu();" id="JSON">Click this div to show all of the stored arrayed items that are constants/</div>
+		<br>
+
+	
+
+	<script>
+//The two functions getMenu and addMenu are used in order to present informaiton to the user that will output the correct values to the correct places. The getMenu is used to recall whatever locally stored simple submission is made.
+
+			function getMenu()
+                {
+					items = localStorage.getItem('moreMenu');
+					document.getElementById("items").innerHTML = 'moreMenu: <span style="font-weight:bold">' + 						
+					items + '</span>';
+                }
+			
+			function addMenu()
+                {
+					items = localStorage.getItem('moreMenu');
+					document.getElementById("store").value = items;
+                }
+		//Additionally, the setMenu and reMenu are for creating a text area and inserting it using innerhtml and displaying some basic workings of arrays using some basic storage functionality.
+
+			function setMenu()
+				{
+					items = document.getElementById("store").value;
+					localStorage.setItem('moreMenu',document.getElementById("store").value);
+				}
+				
+			function reMenu()
+				{
+					var items = ["hamburger","french fries","hot dogs","pop"];
+					var jsonMenu = JSON.stringify(items);
+					document.getElementById("JSON").innerHTML = "items " + jsonMenu;
+					
+				}
+		</script>
+	</div>
 		<br><br><a href="index.html">Home</a> <br><br>
 	</div>
 </body>

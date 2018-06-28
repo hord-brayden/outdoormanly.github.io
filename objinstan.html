@@ -17,6 +17,77 @@
 			<h1>Object Creation Functions, Inheritance, Properties, Methods, Instantiation</h1><br>
 			<br><br><a href="index.html">Home</a> <br><br>
 
+			<script>
+	//Here, we will creat an object that is titled Meal1, wherein where assign and Initialize the Object and state properties:
+	var meal1 = {main : "hamburger",
+				 side: "fries",
+				 drink: "dr pepper",
+				 cost: 5.00 };
+	//Now we will create an inheritance dependancy on the previous meal1, and use meal 2 to add addendums or even just output more info all while retaining the origins attributes.
+	var meal2 = Object.create(meal1);
+                meal2.main = "double double";
+                meal2.side = "curly fries"
+                meal2.drink = "cherry dr pepper";
+                meal2.cost = 7.50;
+	//Basic constructor which can be used to create any number of scenarios in relation to this ficticious restaurant.
+	function mealCompleted(side,main,drink) {
+		this.side = fryType;
+        this.main = hamburger;
+        this.drink = drinkType;
+	}
+	// Creating objects of car3 type and sending its peoperties as parameters:
+	var comp1 = new mealCompleted("curly", "double - double", "sprite");
+	var comp2 = new mealCompleted("original","whopper","coke");
+
+	</script>
+
+	<br><br>
+	Additionally, we can also use some common expressions to also express other easier to implement methods of instantiation and object inheritence with the following output
+
+	<br>View/Inspect the page to view the actual object creation, instantiation, properties, and subsequent inheritence.
+
+	<div id="output">
+		</div>
+	<script>
+
+		//assign the object an output area, and designate the object as the vessel for the information we'll put in
+		var output = document.getElementById('output');
+		function displayObj(obj){
+			console.log(obj);
+			var string = JSON.stringify(obj, null, 2);
+			var div = document.createElement('pre');
+			div.classList.add('object');
+			div.innerHTML = string;
+			output.appendChild(div);
+		};
+
+		function displayProp(obj, prop){
+			var node = document.createTextNode(obj[prop]);
+			output.appendChild(node);
+		}
+		function appendComment(comment){
+			var span = document.createElement(span);
+			span.classList.add('comment');
+			span.innerHTML = comment+'<br /><br />';
+			output.appendChild(span);
+		}
+		
+		//This is going to be what fills the object and expected data types
+
+		function Class(year, diff){
+			this.year = year,
+			this.difficulty = diff,
+			this.durationMin = 150
+		}
+		appendComment('<br />'+Class);
+		var English = new Class("Senior", "high");
+		appendComment('var English = new Class("Senior", "high");');
+		displayObj(English);
+		
+
+
+	</script>
+            
 		</div>
 		<br><br><a href="index.html">Home</a> <br><br>
 	</div>
