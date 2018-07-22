@@ -37,7 +37,7 @@ Welcome to the Bossy Becky Place An Order page! Click through some of the recipe
 
 
 <div>
-	    <form action="mailto:braydenhord@gmail.com" method="post" name="form_name" id="form_id" class="form_class" >
+	    <form action="mailto:braydenhord@gmail.com" method="post" name="new_order" id="form_id" class="form_class" >
 		<!-- intentionally empty action, method, class & ID due to no where to send the emails at this point, nor can we handle orders from around the globe.
 
 		The best way to do this would be to implement PHP, and have it append to the HTML link, this would accomplish this in a very crude way, but it would work
@@ -47,22 +47,10 @@ Welcome to the Bossy Becky Place An Order page! Click through some of the recipe
 		I could accomplish most of this with HTML, but what I can do is use these check boxes to append HTML itself! as you'll see at the bottom of the page, but here's the way I'd probably do it sans JS
 
 		<form action="/place_order1.php"> 1 is for step 1
-
-		<fieldset>
-   		<legend>Order Information</legend>
-  		First name:<br>
-  		<input type="text" value="Bossy"><br>
-  		Last name:<br>
-  		<input type="text" name="lastname" value="Becky"><br><br>
-  		<input type="submit" value="Submit">
-  		</fieldset>
-
   		</form>
 
   		I would also include an email and cell phone number forms
-	
-        
-   
+	 
 
 		 -->
 <fieldset>
@@ -87,21 +75,12 @@ Welcome to the Bossy Becky Place An Order page! Click through some of the recipe
         <label>Total: $ <input type="text" name="total" class="num" size="6" value="8.00" readonly="readonly" /></label>
     </p>
 
+    <label>Name :</label><br/>
+    <input type="text" name="name" id="name" placeholder="Name" /><br/>   
 
-        <!--      
-
-        Or simply just do action= “mailto:johndoe@gmail.com”
-        method=”post” name=”form_name” class=”form_class”
-
-        Something like that 
-
-        -->
-          <label>Name :</label><br/>
-          <input type="text" name="name" id="name" placeholder="Name" /><br/>   
-
-          <label>Email :</label><br/>
-          <input type="text" name="email" id="email" placeholder="Valid Email" /> <br/>
-          <input type="button" name="submit_name" id="btn_name" value="Submit" onclick="nameSub()"/>       
+    <label>Email :</label><br/>
+    <input type="text" name="email" id="email" placeholder="Valid Email" /> <br/>
+    <input type="button" name="submit_name" id="btn_name" value="Submit" onclick="nameSub()"/>       
     </fieldset>
     
 </form>
@@ -115,7 +94,7 @@ function nameSub(){
         
     if(validation())// Calling validation function
       { 
-        var x = document.getElementsByName('form_name');
+        var x = document.getElementsByName('new_order');
         x[0].submit(); //form submission
         alert(" Name : "+name+" \n Email : "+email+" \n Form Name : "+document.getElementById("form_id").getAttribute("name"));
       }         
