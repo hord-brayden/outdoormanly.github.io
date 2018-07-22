@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="/BossyBecky/css/style.css" type="text/css" />
+	<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64"/>
+	<link rel="icon" type="image/gif" href="/favicon.gif"/>
+	<meta charset="UTF-8">
+	<meta name="author" content="Brayden Hord">
+<title>Bossy Becky | Bossy Becky Cooking Blog </title>
+</head>
+
+<body>
+<div id='cssmenu'>
+<ul>
+<li class='active'><a href='/'><span>Home</span></a></li>
+<li><a href="/BossyBecky/favoriterecipes.html"><span>Favorite Recipes</span></a></li>
+<li><a href="/BossyBecky/index2.html"><span>Blog</span></a></li>
+<li><a href="/BossyBecky/socialnetworks.html"><span>Social Networks</span></a></li>
+<li><a href="/BossyBecky/requestrecipe.html"><span>Request A Recipe</span></a></li>
+<li><a href="/BossyBecky/Recipes.html"><span>Recipes</span></a></li>
+<li class='last'><a href="/BossyBecky/contactus.html"><span>Contact Us</span></a></li>
+</ul>
+</div> 
+<header role="banner" id="page-header">
+	<a href="/" title="Go to Home Page">
+		<img class="logo" src="/BossyBecky/mages/BossyBecky-Logo.png" alt="Logo image for BossyBecky.com"> </a>
+	<div class="sitedesc">
+		<h1>Place An Order!</h1>
+	</div>
+</header>
+
+	<div id="MainBodyText">
+Welcome to the Bossy Becky Place An Order page! Click through some of the recipes, and choose what you'd like on your meal, and it will be factored into the cost!
+	</div>
+<main>
+
+
+<div>
+	<form action="# "  method="#" class="#" id="#">
+		<!-- intentionally empty action, method, class & ID due to no where to send the emails at this point, nor can we handle orders from around the globe.
+
+		The best way to do this would be to implement PHP, and have it append to the HTML link, this would accomplish this in a very crude way, but it would work
+
+		/place_order1.php?firstname=Bossy&lastname=Becky
+
+		I could accomplish most of this with HTML, but what I can do is use these check boxes to append HTML itself! as you'll see at the bottom of the page, but here's the way I'd probably do it sans JS
+
+		<form action="/place_order1.php"> 1 is for step 1
+
+		<fieldset>
+   		<legend>Order Information</legend>
+  		First name:<br>
+  		<input type="text" value="Bossy"><br>
+  		Last name:<br>
+  		<input type="text" name="lastname" value="Becky"><br><br>
+  		<input type="submit" value="Submit">
+  		</fieldset>
+
+  		</form>
+
+  		I would also include an email and cell phone number forms
+	
+        
+   
+
+		 -->
+<fieldset>
+        <legend><h1>Italian Loaf Pizza!</h1></legend>
+        <img src="/BossyBecky/images/bossyrecipeimages/italpizza.jpg" width="400" height="600">
+    <p>Size: Feeds 2 Adult People Reliably, or one adult for four meals</p>
+    
+    <div id="toppings">Toppings: 
+
+    	<!-- Meats are way more expensive, so it's annotated as such -->
+        <label><input type="checkbox" name="mushrooms" value=".40" /> mushrooms</label>
+        <label><input type="checkbox" name="onions" value=".30" /> onions</label>
+        <label><input type="checkbox" name="black_olives" value=".40" /> black olives</label>
+        <label><input type="checkbox" name="pineapple" value=".50" /> pineapple</label>
+		<label><input type="checkbox" name="zucchini" value=".50" /> zucchini</label>
+        <!-- Meats are way more expensive, so it's annotated as such -->
+        <label><input type="checkbox" name="sausage" value=".50" /> sausage</label>
+        <label><input type="checkbox" name="pepperoni" value=".50" /> pepperoni</label>
+    </div>
+    
+    <p>
+        <label>Total: $ <input type="text" name="total" class="num" size="6" value="8.00" readonly="readonly" /></label>
+    </p>
+    <form action="#" method="post" name="form_name" id="form_id" class="form_class" >
+
+        <!--      
+
+        Or simply just do action= “mailto:johndoe@gmail.com”
+        method=”post” name=”form_name” class=”form_class”
+
+        Something like that 
+
+        -->
+          <label>Name :</label><br/>
+          <input type="text" name="name" id="name" placeholder="Name" /><br/>   
+
+          <label>Email :</label><br/>
+          <input type="text" name="email" id="email" placeholder="Valid Email" /> <br/>
+          <input type="button" name="submit_name" id="btn_name" value="Submit by Name" onclick="nameSub()"/>       
+        </form>
+    </fieldset>
+    
+</form>
+
+</div> 
+<script type="text/javascript">
+//Submit form with name function
+function nameSub(){
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+        
+    if(validation())// Calling validation function
+      { 
+        var x = document.getElementsByName('form_name');
+        x[0].submit(); //form submission
+        alert(" Name : "+name+" \n Email : "+email+" \n Form Name : "+document.getElementById("form_id").getAttribute("name"));
+      }         
+    }
+
+//  Name and Email validation Function
+function validation(){
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    //Email Blur Handler sans JQuery
+    var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+    
+    if( name ==='' || email ==='')
+       {
+        alert("Please fill all fields...!!!!!!");
+        return false;
+       }
+    else if(!(email).match(emailReg))
+       {
+         alert("Invalid Email...!!!!!!");
+         return false;
+       }
+    else
+       {
+         return true;
+       }   
+}
+
+// Functionality for handling the checkbox total - This is a way I found to make it work using only JS and no HTML/PHPS!
+    function moveDec(val, i) {
+        i = i || 2;
+        var str = "" + Math.round ( parseFloat(val) * Math.pow(10, i) );
+        while (str.length <= i) {
+            str = "0" + str;
+        }
+        var pt = str.length - i;
+        return str.slice(0,pt) + "." + str.slice(pt);
+    }
+        
+    function newTotal(e) {
+        var form = this.form;
+        var val = parseFloat( form.elements['total'].value );
+        if ( this.checked ) {
+            val += parseFloat(this.value);
+        } else {
+            val -= parseFloat(this.value);
+        }
+        form.elements['total'].value = moveDec(val);
+    }
+    
+    function attachCheckboxHandlers() {
+        var el = document.getElementById('toppings');
+    
+        var tops = el.getElementsByTagName('input');
+    
+        for (var i=0, len=tops.length; i<len; i++) {
+            if ( tops[i].type === 'checkbox' ) {
+                tops[i].onclick = newTotal;
+            }
+        }
+        
+    }
+        
+    attachCheckboxHandlers();
+    
+    // disable submission of all forms on this page
+    // This is important for the above reason found in the HTML, as we have no where to send the return information at this point.
+    for (var i=0, len=document.forms.length; i<len; i++) {
+        document.forms[i].onsubmit = function() { return false; };
+    
+};
+</script>
+
+
+
+<!-- Ultimately, I'd like to attach these two functions to pass their variables between each other, however I have one used simply for the math functionality to demonstrate that is possible via Javascript, and the other simple grabs a Name and an Email to send it off to whatever address one puts in thr mailto spot! -->
+
+	</div>
+</main>
+
+<footer id ="page-footer">
+	<div><ul>
+<li><a href="/StyleGuide.html"><span>Style Guide</span></a></li>
+<li><a href="/PurposeStatement.html"><span>Purpose Statement</span></a></li>
+<li><a href="/AudienceDescription.html"><span>Audience Description</span></a></li>
+<li><a href="/ContentList.html"><span>Content List</span></a></li>
+<li><a href="/Personas.html"><span>Personas</span></a></li>
+<li><a href="/Scenarios.html"><span>Scenarios</span></a></li>
+<li class='last'><a href="/Sitemap.xml"><span>Sitemap XML</span>
+</ul>
+	</div>
+</footer>
+</body>
+</html>
