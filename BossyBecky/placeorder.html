@@ -37,7 +37,7 @@ Welcome to the Bossy Becky Place An Order page! Click through some of the recipe
 
 
 <div>
-	<form action="mailto:braydenhord@gmail.com "  method="#" class="#" id="#">
+	    <form action="mailto:braydenhord@gmail.com" method="post" name="form_name" id="form_id" class="form_class" >
 		<!-- intentionally empty action, method, class & ID due to no where to send the emails at this point, nor can we handle orders from around the globe.
 
 		The best way to do this would be to implement PHP, and have it append to the HTML link, this would accomplish this in a very crude way, but it would work
@@ -86,7 +86,7 @@ Welcome to the Bossy Becky Place An Order page! Click through some of the recipe
     <p>
         <label>Total: $ <input type="text" name="total" class="num" size="6" value="8.00" readonly="readonly" /></label>
     </p>
-    <form action="mailto:braydenhord@gmail.com" method="post" name="form_name" id="form_id" class="form_class" >
+
 
         <!--      
 
@@ -102,7 +102,6 @@ Welcome to the Bossy Becky Place An Order page! Click through some of the recipe
           <label>Email :</label><br/>
           <input type="text" name="email" id="email" placeholder="Valid Email" /> <br/>
           <input type="button" name="submit_name" id="btn_name" value="Submit" onclick="nameSub()"/>       
-        </form>
     </fieldset>
     
 </form>
@@ -191,22 +190,11 @@ function validation(){
 </script>
 
 
-
-<!-- Ultimately, I'd like to attach these two functions to pass their variables between each other, however I have one used simply for the math functionality to demonstrate that is possible via Javascript, and the other simple grabs a Name and an Email to send it off to whatever address one puts in thr mailto spot! -->
-
 	</div>
 </main>
 
 <footer id ="page-footer">
-	<div><ul>
-<li><a href="/StyleGuide.html"><span>Style Guide</span></a></li>
-<li><a href="/PurposeStatement.html"><span>Purpose Statement</span></a></li>
-<li><a href="/AudienceDescription.html"><span>Audience Description</span></a></li>
-<li><a href="/ContentList.html"><span>Content List</span></a></li>
-<li><a href="/Personas.html"><span>Personas</span></a></li>
-<li><a href="/Scenarios.html"><span>Scenarios</span></a></li>
-<li class='last'><a href="/Sitemap.xml"><span>Sitemap XML</span>
-</ul>
+	
 	</div>
 </footer>
 </body>
