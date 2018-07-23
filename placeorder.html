@@ -1,14 +1,15 @@
 
+
 <!DOCTYPE html>
 <html>
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="/BossyBecky/css/style.css" type="text/css" />
-	<link rel="icon" type="image/png" href="/favicon.png" sizes="64x64"/>
-	<link rel="icon" type="image/gif" href="/favicon.gif"/>
-	<meta charset="UTF-8">
-	<meta name="author" content="Brayden Hord">
+    <link rel="stylesheet" href="/BossyBecky/css/style.css" type="text/css" />
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="64x64"/>
+    <link rel="icon" type="image/gif" href="/favicon.gif"/>
+    <meta charset="UTF-8">
+    <meta name="author" content="Brayden Hord">
 <title>Bossy Becky | Bossy Becky Cooking Blog </title>
 </head>
 
@@ -25,34 +26,34 @@
 </ul>
 </div> 
 <header role="banner" id="page-header">
-	<div class="sitedesc">
-		<h1>Place An Order!</h1>
-	</div>
+    <div class="sitedesc">
+        <h1>Place An Order!</h1>
+    </div>
 </header>
 
-	<div id="MainBodyText">
+    <div id="MainBodyText">
 Welcome to the Bossy Becky Place An Order page! Click through some of the recipes, and choose what you'd like on your meal, and it will be factored into the cost!
-	</div>
+    </div>
 <main>
 
 
 <div>
-	    <form action="mailto:braydenhord@gmail.com" method="post" name="new_order" id="Ital_Pizza" class="form_class" >
-		<!-- intentionally empty action, method, class & ID due to no where to send the emails at this point, nor can we handle orders from around the globe.
+        <form action="mailto:braydenhord@gmail.com" method="post" name="new_order" id="form_id" class="form_class" >
+        <!-- intentionally empty action, method, class & ID due to no where to send the emails at this point, nor can we handle orders from around the globe.
 
-		The best way to do this would be to implement PHP, and have it append to the HTML link, this would accomplish this in a very crude way, but it would work
+        The best way to do this would be to implement PHP, and have it append to the HTML link, this would accomplish this in a very crude way, but it would work - ultimately any server side scripting would be great, but we're not being graded on that.
 
-		/place_order1.php?firstname=Bossy&lastname=Becky
+        /place_order1.php?firstname=Bossy&lastname=Becky
 
-		I could accomplish most of this with HTML, but what I can do is use these check boxes to append HTML itself! as you'll see at the bottom of the page, but here's the way I'd probably do it sans JS
+        I could accomplish most of this with HTML, but what I can do is use these check boxes to append HTML itself! as you'll see at the bottom of the page, but here's the way I'd probably do it sans JS
 
-		<form action="/place_order1.php"> 1 is for step 1
-  		</form>
+        <form action="/place_order1.php"> 1 is for step 1
+        </form>
 
-  		I would also include an email and cell phone number forms
-	 
+        I would also include an email and cell phone number forms
+     
 
-		 -->
+         -->
 <fieldset>
         <legend><h1>Italian Loaf Pizza!</h1></legend>
         <img src="/BossyBecky/images/bossyrecipeimages/italpizza.jpg" width="400" height="600">
@@ -60,12 +61,12 @@ Welcome to the Bossy Becky Place An Order page! Click through some of the recipe
     
     <div id="toppings">Toppings: 
 
-    	<!-- Meats are way more expensive, so it's annotated as such -->
+        <!-- Meats are way more expensive, so it's annotated as such -->
         <label><input type="checkbox" name="mushrooms" value=".40" /> mushrooms</label>
         <label><input type="checkbox" name="onions" value=".30" /> onions</label>
         <label><input type="checkbox" name="black_olives" value=".40" /> black olives</label>
         <label><input type="checkbox" name="pineapple" value=".50" /> pineapple</label>
-		<label><input type="checkbox" name="zucchini" value=".50" /> zucchini</label>
+        <label><input type="checkbox" name="zucchini" value=".50" /> zucchini</label>
         <!-- Meats are way more expensive, so it's annotated as such -->
         <label><input type="checkbox" name="sausage" value=".50" /> sausage</label>
         <label><input type="checkbox" name="pepperoni" value=".50" /> pepperoni</label>
@@ -96,25 +97,28 @@ function nameSub(){
       { 
         var x = document.getElementsByName('new_order');
         x[0].submit(); //form submission
-        alert(" Name : "+name+" \n Email : "+email+" \n Form Name : "+document.getElementById("Ital_Pizza").getAttribute("name"));
+        alert(" Name : "+name+" \n Email : "+email+" \n Form Name : "+document.getElementById("form_id").getAttribute("name"));
       }         
     }
 
 //  Name and Email validation Function
+
+
 function validation(){
     var name = document.getElementById("name").value;
     var email = document.getElementById("email").value;
     //Email Blur Handler sans JQuery
+    //This essentially handles proper email patterns
     var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
     
     if( name ==='' || email ==='')
        {
-        alert("Please fill all fields...!!!!!!");
+        alert("Please fill all fields!");
         return false;
        }
     else if(!(email).match(emailReg))
        {
-         alert("Invalid Email...!!!!!!");
+         alert("Invalid email!");
          return false;
        }
     else
@@ -124,6 +128,8 @@ function validation(){
 }
 
 // Functionality for handling the checkbox total - This is a way I found to make it work using only JS and no HTML/PHPS!
+
+
     function moveDec(val, i) {
         i = i || 2;
         var str = "" + Math.round ( parseFloat(val) * Math.pow(10, i) );
@@ -159,26 +165,16 @@ function validation(){
     }
         
     attachCheckboxHandlers();
-    
-    // disable submission of all forms on this page
-    // This is important for the above reason found in the HTML, as we have no where to send the return information at this point.
-    for (var i=0, len=document.forms.length; i<len; i++) {
-        document.forms[i].onsubmit = function() { return false; };
-    
-};
+
 </script>
 
-<p>
-    This should pass all the value settings of whatever toppings were selected, in addition to the running total as ran through HTML, then through JavaScript, then back through HTML and parsed into an email. 
-<br>
-    Tested on my Mac OSX with it's native Mail function, and my Windows VM with its proprietary Outlook functions. If you want the email sent to yourself, change the to field either in the email window when it's pulled up, or just change it in the HTML under the form action="mailto:braydenhord@gmail.com"
-</p>
-	</div>
+
+    </div>
 </main>
 
 <footer id ="page-footer">
-	
-	</div>
+    
+    </div>
 </footer>
 </body>
 </html>
